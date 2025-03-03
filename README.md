@@ -11,3 +11,9 @@ rod/bars/blocks rotate at fourths in batteries. The position of the rods tells t
         - second rod in the second battery is pointing down its __:50 | fifth rod pointing right makes it __:57
         - first rod in the third battery is pointing left its __:__:30 | second rod pointing down its __:__:35
     - all together it is 11:57.35
+
+
+
+
+Maeda clock:
+    this clock has the hour lining the backdrop and the single hand showing the seconds with the minutes in the middle
