@@ -17,3 +17,11 @@ rod/bars/blocks rotate at fourths in batteries. The position of the rods tells t
 
 Maeda clock:
     this clock has the hour lining the backdrop and the single hand showing the seconds with the minutes in the middle
+
+
+
+Clock00:
+    today I layed the bones of my clock out by drawing rectangle in the battery orientation i had sketched and adding rotation to each of them with the push/pop function.
+    working up from seconds I used if statments to have each rod rotate whe it needed to, after attemting to brute force the OR operator i discovered that you need to specify what your other condition is in full rather than saying 1 OR 2 you need that say x=1 OR x=2.
+
+    I added a fifth rod to the hour battery after realising it was in 24 hour time. This actually made the clock more cohesive as now every battery has five rods.
