@@ -25,3 +25,8 @@ Clock00:
     working up from seconds I used if statments to have each rod rotate whe it needed to, after attemting to brute force the OR operator i discovered that you need to specify what your other condition is in full rather than saying 1 OR 2 you need that say x=1 OR x=2.
 
     I added a fifth rod to the hour battery after realising it was in 24 hour time. This actually made the clock more cohesive as now every battery has five rods.
+
+Clock03:
+    Experimenting with colour by mapping the objs for seconds, minutes, and hours to a range of 100 to 255 for use in RGB colour. initially from 0 to 255. but the lower ranges made the clock too dark to read.
+
+    I also made maps going down from 255 rather than up to 255.

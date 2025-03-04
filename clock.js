@@ -11,20 +11,30 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  angleMode(DEGREES)
-  background(255); //  white
-  fill(0); // black
-
   let secondsToDegrees = map(obj.seconds, 0, 59, 0, 360)
   let minutesToDegrees = map(obj.minutes, 0, 59, 0, 360)
   let hoursToDegrees = map(obj.hours, 0, 23, 0, 360)
+
+  let secondsToColour = map(obj.seconds, 0, 23, 100, 255)
+  let REsecondsToColour = map(obj.seconds, 0, 23, 255, 100)
+  let minutesToColour = map(obj.minutes, 0, 59, 100, 255)
+  let REminutesToColour = map(obj.minutes, 0, 59, 255, 100)
+  let hoursToColour = map(obj.hours, 0, 23, 100, 255)
+  let REhoursToColour = map(obj.hours, 0, 23, 255, 100)
+
+  background(hoursToColour, REsecondsToColour, minutesToColour)
+  noStroke()
+  fill(REhoursToColour, secondsToColour, REminutesToColour)
+  angleMode(DEGREES)
+  
+
 
   //text(obj.seconds, 800, 50) // for looking at
   //text(obj.minutes, 500, 50)
   //text(obj.hours, 200, 50)
 
   push() // HOURS
-  translate(137.142857, 150)
+  translate(127.142857, 137.5)
   if(obj.hours >= 10) {
   rotate(90)
   }
@@ -41,7 +51,7 @@ function draw_clock(obj) {
   pop()
 
   push() // HOURS
-  translate(274.285714, 150)
+  translate(264.285714, 137.5)
   if(obj.hours >= 40) {
     rotate(90)
   }
@@ -55,7 +65,7 @@ function draw_clock(obj) {
   pop()
 
   push() // HOURS
-  translate(205.714285, 275)
+  translate(195.714285, 262.5)
   if(obj.hours == 1 || obj.hours == 11 || obj.hours == 21 || obj.hours == 31 || obj.hours == 41 || obj.hours == 51) {
     rotate(90)
   } 
@@ -69,7 +79,7 @@ function draw_clock(obj) {
   pop()
 
   push() // HOURS
-  translate(137.142857, 400)
+  translate(127.142857, 387.5)
   if(obj.hours == 4 || obj.hours == 14 || obj.hours == 24 || obj.hours == 34 || obj.hours == 44 || obj.hours == 54) {
   rotate(90)
   }
@@ -83,7 +93,7 @@ function draw_clock(obj) {
   pop()
 
   push() // HOURS
-  translate(274.285714, 400)
+  translate(264.285714, 387.5)
   if(obj.hours == 7 || obj.hours == 17 || obj.hours == 27 || obj.hours == 37 || obj.hours == 47 || obj.hours == 57) {
   rotate(90)
   }
@@ -97,7 +107,7 @@ function draw_clock(obj) {
   pop()
 
   push() // MINUTES
-  translate(411.428571, 125)
+  translate(411.428571, 112.5)
   if(obj.minutes >= 10) {
   rotate(90)
   }
@@ -114,7 +124,7 @@ function draw_clock(obj) {
   pop()
 
   push() // MINUTES
-  translate(548.571428, 125)
+  translate(548.571428, 112.5)
   if(obj.minutes >= 40) {
     rotate(90)
   }
@@ -128,7 +138,7 @@ function draw_clock(obj) {
   pop()
 
   push() // MINUTES
-  translate(479.999999, 250)
+  translate(479.999999, 237.5)
   if(obj.minutes == 1 || obj.minutes == 11 || obj.minutes == 21 || obj.minutes == 31 || obj.minutes == 41 || obj.minutes == 51) {
     rotate(90)
   } 
@@ -142,7 +152,7 @@ function draw_clock(obj) {
   pop()
   
   push() // MINUTES
-  translate(411.428571, 375)
+  translate(411.428571, 362.5)
   if(obj.minutes == 4 || obj.minutes == 14 || obj.minutes == 24 || obj.minutes == 34 || obj.minutes == 44 || obj.minutes == 54) {
   rotate(90)
   }
@@ -156,7 +166,7 @@ function draw_clock(obj) {
   pop()
 
   push() // MINUTES
-  translate(548.571428, 375)
+  translate(548.571428, 362.5)
   if(obj.minutes == 7 || obj.minutes == 17 || obj.minutes == 27 || obj.minutes == 37 || obj.minutes == 47 || obj.minutes == 57) {
   rotate(90)
   }
@@ -170,7 +180,7 @@ function draw_clock(obj) {
   pop()
 
   push() // SECONDS
-  translate(685.714285, 150)
+  translate(695.714285, 137.5)
   if(obj.seconds >= 10) {
   rotate(90)
   }
@@ -187,7 +197,7 @@ function draw_clock(obj) {
   pop()
 
   push() // SECONDS
-  translate(822.857142, 150)
+  translate(832.857142, 137.5)
   if(obj.seconds >= 40) {
   rotate(90)
   }
@@ -201,7 +211,7 @@ function draw_clock(obj) {
   pop()
 
   push() // SECONDS
-  translate(754.285714, 275)
+  translate(764.285714, 262.5)
   if(obj.seconds == 1 || obj.seconds == 11 || obj.seconds == 21 || obj.seconds == 31 || obj.seconds == 41 || obj.seconds == 51) {
   rotate(90)
   } 
@@ -215,7 +225,7 @@ function draw_clock(obj) {
   pop()
 
   push() // SECONDS
-  translate(685.714285, 400)
+  translate(695.714285, 387.5)
   if(obj.seconds == 4 || obj.seconds == 14 || obj.seconds == 24 || obj.seconds == 34 || obj.seconds == 44 || obj.seconds == 54) {
   rotate(90)
   }
@@ -229,7 +239,7 @@ function draw_clock(obj) {
   pop()
 
   push() // SECONDS
-  translate(822.857142, 400)
+  translate(832.857142, 387.5)
   if(obj.seconds == 7 || obj.seconds == 17 || obj.seconds == 27 || obj.seconds == 37 || obj.seconds == 47 || obj.seconds == 57) {
   rotate(90)
   }
