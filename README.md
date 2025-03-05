@@ -30,3 +30,6 @@ Clock03:
     Experimenting with colour by mapping the objs for seconds, minutes, and hours to a range of 100 to 255 for use in RGB colour. initially from 0 to 255. but the lower ranges made the clock too dark to read.
 
     I also made maps going down from 255 rather than up to 255.
+
+DungeonBrick00:
+    trying out different themes to my clock. by drawing rects and quad i made a brick wall effect with shadows on each brick
