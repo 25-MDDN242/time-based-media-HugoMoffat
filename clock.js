@@ -112,7 +112,7 @@ function draw_clock(obj) {
   pop()
 
   fill(0, 0, 0)
-  //text(obj.seconds, 800, 50) // for looking at
+  text(obj.seconds, 800, 50) // for looking at
   //text(obj.minutes, 500, 50)
   //text(obj.hours, 200, 50)
 
