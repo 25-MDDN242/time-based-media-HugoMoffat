@@ -36,3 +36,6 @@ DungeonBrick00:
 
 DungeonBrick01:
     made the quads over the bricks shrink and lengthen with the hours. done by splitting obj.hours in half with four maps, two counting from 0-12 and two from 13-23. added a dynamic backdrop behind the brickss with a rotating png. the png rotates smoothly from the exactSeconds variable (seconds+milliseconds/1000).
+
+Runes00:
+    replaced the black bars acting as my hands with squiggly runes made of two mirrored quads
