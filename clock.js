@@ -33,10 +33,10 @@ function draw_clock(obj) {
   let hoursToColour = map(obj.hours, 0, 23, 100, 255)
   let REhoursToColour = map(obj.hours, 0, 23, 255, 100)
 
-  let shadowHoursX = map(obj.hours, 0, 12, 0, 140)
-  let shadowHoursY = map(obj.hours, 0, 12, 0, 90)
-  let shadowHoursNegX = map(obj.hours, 13, 23, 140, 0)
-  let shadowHoursNegY = map(obj.hours, 13, 23, 90, 0)
+  let shadowHoursX = map(obj.hours, 0, 12, 0, 150)
+  let shadowHoursY = map(obj.hours, 0, 12, 0, 100)
+  let shadowHoursNegX = map(obj.hours, 13, 23, 150, 0)
+  let shadowHoursNegY = map(obj.hours, 13, 23, 100, 0)
 
   background(255)
   noStroke()
@@ -135,8 +135,8 @@ function draw_clock(obj) {
   rect(780, 425, 150, 100)
   rect(935, 425, 150, 100)
 
-  fill(50)
-  if(obj.hours < 13) { //shadows shrink
+  fill(50, 100)
+  if(obj.hours < 13) { //shadows wane
   quad(155, 5, 155, 105, 5, 105, 5+shadowHoursX, 5+shadowHoursY)
   quad(310, 5, 310, 105, 160, 105, 160+shadowHoursX, 5+shadowHoursY)
   quad(465, 5, 465, 105, 315, 105, 315+shadowHoursX, 5+shadowHoursY)
@@ -176,6 +176,7 @@ function draw_clock(obj) {
   quad(775, 425, 775, 525, 625, 525, 625+shadowHoursX, 425+shadowHoursY)
   quad(930, 425, 930, 525, 780, 525, 780+shadowHoursX, 425+shadowHoursY)
   quad(1085, 425, 1085, 525, 935, 525, 935+shadowHoursX, 425+shadowHoursY)
+
   } else { //shadows lengthen
   quad(155, 5, 155, 105, 5, 105, 5+shadowHoursNegX, 5+shadowHoursNegY)
   quad(310, 5, 310, 105, 160, 105, 160+shadowHoursNegX, 5+shadowHoursNegY)
@@ -221,9 +222,9 @@ function draw_clock(obj) {
   
   //fill(0, 0, 0)
   //text(obj.seconds, 800, 50) // for looking at
-  //text(obj.minutes, 500, 50)
-  //text(obj.hours, 200, 50)
-  //text(exactSeconds, 800, 50)
+  //text(obj.minutes, 500, 50) // observering
+  //text(obj.hours, 200, 50) // taking a gander
+  //text(exactSeconds, 800, 50) // eyeballing it
 
   push() // HOURS
   translate(127.142857, 137.5)
@@ -239,10 +240,17 @@ function draw_clock(obj) {
   if(obj.hours >= 40) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -257,10 +265,17 @@ function draw_clock(obj) {
   if(obj.hours >= 60) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -275,10 +290,17 @@ function draw_clock(obj) {
   if(obj.hours == 3 || obj.hours == 13 || obj.hours == 23 || obj.hours == 33 || obj.hours == 43 || obj.hours == 53) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -293,10 +315,17 @@ function draw_clock(obj) {
   if(obj.hours == 6 || obj.hours == 16 || obj.hours == 26 || obj.hours == 36 || obj.hours == 46 || obj.hours == 56) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -311,10 +340,17 @@ function draw_clock(obj) {
   if(obj.hours == 9 || obj.hours == 19 || obj.hours == 29 || obj.hours == 39 || obj.hours == 49 || obj.hours == 59) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -332,10 +368,17 @@ function draw_clock(obj) {
   if(obj.minutes >= 40) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -350,10 +393,17 @@ function draw_clock(obj) {
   if(obj.minutes >= 60) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -368,10 +418,17 @@ function draw_clock(obj) {
   if(obj.minutes == 3 || obj.minutes == 13 || obj.minutes == 23 || obj.minutes == 33 || obj.minutes == 43 || obj.minutes == 53) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
   
@@ -386,10 +443,17 @@ function draw_clock(obj) {
   if(obj.minutes == 6 || obj.minutes == 16 || obj.minutes == 26 || obj.minutes == 36 || obj.minutes == 46 || obj.minutes == 56) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -404,10 +468,17 @@ function draw_clock(obj) {
   if(obj.minutes == 9 || obj.minutes == 19 || obj.minutes == 29 || obj.minutes == 39 || obj.minutes == 49 || obj.minutes == 59) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -425,10 +496,17 @@ function draw_clock(obj) {
   if(obj.seconds >= 40) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -443,10 +521,17 @@ function draw_clock(obj) {
   if(obj.seconds >= 60) {
   rotate(90)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -461,10 +546,17 @@ function draw_clock(obj) {
   if(obj.seconds == 3 || obj.seconds == 13 || obj.seconds == 23 || obj.seconds == 33 || obj.seconds == 43 || obj.seconds == 53) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -479,10 +571,17 @@ function draw_clock(obj) {
   if(obj.seconds == 6 || obj.seconds == 16 || obj.seconds == 26 || obj.seconds == 36 || obj.seconds == 46 || obj.seconds == 56) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 
@@ -497,10 +596,17 @@ function draw_clock(obj) {
   if(obj.seconds == 9 || obj.seconds == 19 || obj.seconds == 29 || obj.seconds == 39 || obj.seconds == 49 || obj.seconds == 59) {
   rotate(270)
   }
-  fill(0)
-  quad(0, 0, 10, -10, -10, -30, 0, -100)
-  fill(255)
-  quad(0, 0, -10, -10, 10, -30, 0, -100)
+  noStroke()
+  fill(170, 20, 20, 50)
+  ellipse(0, -40, 50, 120)
+  ellipse(0, -40, 40, 110)
+  ellipse(0, -40, 30, 80)
+  strokeWeight(0.5)
+  stroke(0)
+  fill(minutesToColour, 20, 30)
+  quad(0, 5, 15, -10, -15, -30, 0, -100)
+  fill(REminutesToColour, 30, 30)
+  quad(0, 5, -15, -10, 15, -30, 0, -100)
   //rect(-10, 0, 20, -100)
   pop()
 

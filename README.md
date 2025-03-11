@@ -39,3 +39,8 @@ DungeonBrick01:
 
 Runes00:
     replaced the black bars acting as my hands with squiggly runes made of two mirrored quads
+
+Runes01:
+    Gave the runes a red colour that changes with minutes, and a glow that is cast onto the bricks behind them.
+
+    changed the opacity of the shadows over the bricks.
