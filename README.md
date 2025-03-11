@@ -33,3 +33,6 @@ Clock03:
 
 DungeonBrick00:
     trying out different themes to my clock. by drawing rects and quad i made a brick wall effect with shadows on each brick
+
+DungeonBrick01:
+    made the quads over the bricks shrink and lengthen with the hours. done by splitting obj.hours in half with four maps, two counting from 0-12 and two from 13-23. added a dynamic backdrop behind the brickss with a rotating png. the png rotates smoothly from the exactSeconds variable (seconds+milliseconds/1000).

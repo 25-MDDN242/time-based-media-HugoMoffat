@@ -1,6 +1,12 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+let img;
+
+function preload() {
+  img = loadImage('DungeonGreen.png')
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -11,6 +17,11 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
+  let seconds = obj.seconds
+  let milliseconds = obj.millis
+  let exactSeconds = seconds + milliseconds / 1000
+  
+  let smoothSecondsDegrees = map(exactSeconds, 0, 59.999, 0, 360)
   let secondsToDegrees = map(obj.seconds, 0, 59, 0, 360)
   let minutesToDegrees = map(obj.minutes, 0, 59, 0, 360)
   let hoursToDegrees = map(obj.hours, 0, 23, 0, 360)
@@ -22,14 +33,69 @@ function draw_clock(obj) {
   let hoursToColour = map(obj.hours, 0, 23, 100, 255)
   let REhoursToColour = map(obj.hours, 0, 23, 255, 100)
 
-  background(255, 255, 255)
+  let shadowHoursX = map(obj.hours, 0, 12, 0, 140)
+  let shadowHoursY = map(obj.hours, 0, 12, 0, 90)
+  let shadowHoursNegX = map(obj.hours, 13, 23, 140, 0)
+  let shadowHoursNegY = map(obj.hours, 13, 23, 90, 0)
+
+  background(255)
   noStroke()
   angleMode(DEGREES)
   
   push()
+  rotate(smoothSecondsDegrees) //moving wallpaper
+  image(img, -1100, -1100)
+  pop()
+
+  fill(25, 50)
+  rect(0, 0, 960, 500)
+
+  push()
   translate(-50, -20)
+
+  fill(10)
+  rect(4, 4, 152, 102) // mortar
+  rect(159, 4, 152, 102)
+  rect(314, 4, 152, 102)
+  rect(469, 4, 152, 102)
+  rect(624, 4, 152, 102)
+  rect(779, 4, 152, 102)
+  rect(934, 4, 152, 102)
+
+  rect(-51, 109, 152, 102)
+  rect(104, 109, 152, 102)
+  rect(259, 109, 152, 102)
+  rect(414, 109, 152, 102)
+  rect(569, 109, 152, 102)
+  rect(724, 109, 152, 102)
+  rect(879, 109, 152, 102)
+
+  rect(4, 214, 152, 102)
+  rect(159, 214, 152, 102)
+  rect(314, 214, 152, 102)
+  rect(469, 214, 152, 102)
+  rect(624, 214, 152, 102)
+  rect(779, 214, 152, 102)
+  rect(934, 214, 152, 102)
+
+  rect(-51, 319, 152, 102)
+  rect(104, 319, 152, 102)
+  rect(259, 319, 152, 102)
+  rect(414, 319, 152, 102)
+  rect(569, 319, 152, 102)
+  rect(724, 319, 152, 102)
+  rect(879, 319, 152, 102)
+
+  rect(4, 424, 152, 102)
+  rect(159, 424, 152, 102)
+  rect(314, 424, 152, 102)
+  rect(469, 424, 152, 102)
+  rect(624, 424, 152, 102)
+  rect(779, 424, 152, 102)
+  rect(934, 424, 152, 102)
+
   fill(100)
-  rect(5, 5, 150, 100)
+  rect(5, 5, 150, 100) //bricks
   rect(160, 5, 150, 100)
   rect(315, 5, 150, 100)
   rect(470, 5, 150, 100)
@@ -70,51 +136,94 @@ function draw_clock(obj) {
   rect(935, 425, 150, 100)
 
   fill(50)
-  quad(155, 5, 155, 105, 5, 105, 145, 95)
-  quad(310, 5, 310, 105, 160, 105, 300, 95)
-  quad(465, 5, 465, 105, 315, 105, 455, 95)
-  quad(620, 5, 620, 105, 460, 105, 610, 95)
-  quad(775, 5, 775, 105, 625, 105, 765, 95)
-  quad(930, 5, 930, 105, 780, 105, 920, 95)
-  quad(1085, 5, 1085, 105, 935, 105, 1075, 95)
+  if(obj.hours < 13) { //shadows shrink
+  quad(155, 5, 155, 105, 5, 105, 5+shadowHoursX, 5+shadowHoursY)
+  quad(310, 5, 310, 105, 160, 105, 160+shadowHoursX, 5+shadowHoursY)
+  quad(465, 5, 465, 105, 315, 105, 315+shadowHoursX, 5+shadowHoursY)
+  quad(620, 5, 620, 105, 470, 105, 470+shadowHoursX, 5+shadowHoursY)
+  quad(775, 5, 775, 105, 625, 105, 625+shadowHoursX, 5+shadowHoursY)
+  quad(930, 5, 930, 105, 780, 105, 780+shadowHoursX, 5+shadowHoursY)
+  quad(1085, 5, 1085, 105, 935, 105, 935+shadowHoursX, 5+shadowHoursY)
 
-  quad(100, 110, 100, 210, -50, 210, 90, 200)
-  quad(255, 110, 255, 210, 105, 210, 245, 200)
-  quad(410, 110, 410, 210, 260, 210, 400, 200)
-  quad(565, 110, 565, 210, 425, 210, 555, 200)
-  quad(720, 110, 720, 210, 570, 210, 710, 200)
-  quad(875, 110, 875, 210, 725, 210, 865, 200)
-  quad(1030, 110, 1030, 210, 880, 210, 1020, 200)
+  quad(100, 110, 100, 210, -50, 210, -50+shadowHoursX, 110+shadowHoursY)
+  quad(255, 110, 255, 210, 105, 210, 105+shadowHoursX, 110+shadowHoursY)
+  quad(410, 110, 410, 210, 260, 210, 260+shadowHoursX, 110+shadowHoursY)
+  quad(565, 110, 565, 210, 415, 210, 415+shadowHoursX, 110+shadowHoursY)
+  quad(720, 110, 720, 210, 570, 210, 570+shadowHoursX, 110+shadowHoursY)
+  quad(875, 110, 875, 210, 725, 210, 725+shadowHoursX, 110+shadowHoursY)
+  quad(1030, 110, 1030, 210, 880, 210, 880+shadowHoursX, 110+shadowHoursY)
 
-  quad(155, 215, 155, 315, 5, 315, 145, 305)
-  quad(310, 215, 310, 315, 160, 315, 300, 305)
-  quad(465, 215, 465, 315, 315, 315, 455, 305)
-  quad(620, 215, 620, 315, 460, 315, 610, 305)
-  quad(775, 215, 775, 315, 625, 315, 765, 305)
-  quad(930, 215, 930, 315, 780, 315, 920, 305)
-  quad(1085, 215, 1085, 315, 935, 315, 1075, 305)
+  quad(155, 215, 155, 315, 5, 315, 5+shadowHoursX, 215+shadowHoursY)
+  quad(310, 215, 310, 315, 160, 315, 160+shadowHoursX, 215+shadowHoursY)
+  quad(465, 215, 465, 315, 315, 315, 315+shadowHoursX, 215+shadowHoursY)
+  quad(620, 215, 620, 315, 470, 315, 470+shadowHoursX, 215+shadowHoursY)
+  quad(775, 215, 775, 315, 625, 315, 625+shadowHoursX, 215+shadowHoursY)
+  quad(930, 215, 930, 315, 780, 315, 780+shadowHoursX, 215+shadowHoursY)
+  quad(1085, 215, 1085, 315, 935, 315, 935+shadowHoursX, 215+shadowHoursY)
 
-  quad(100, 320, 100, 420, -50, 420, 90, 410)
-  quad(255, 320, 255, 420, 105, 420, 245, 410)
-  quad(410, 320, 410, 420, 260, 420, 400, 410)
-  quad(565, 320, 565, 420, 415, 420, 555, 410)
-  quad(720, 320, 720, 420, 570, 420, 710, 410)
-  quad(875, 320, 875, 420, 725, 420, 865, 410)
-  quad(1030, 320, 1030, 420, 880, 420, 1020, 410)
+  quad(100, 320, 100, 420, -50, 420, -50+shadowHoursX, 320+shadowHoursY)
+  quad(255, 320, 255, 420, 105, 420, 105+shadowHoursX, 320+shadowHoursY)
+  quad(410, 320, 410, 420, 260, 420, 260+shadowHoursX, 320+shadowHoursY)
+  quad(565, 320, 565, 420, 415, 420, 415+shadowHoursX, 320+shadowHoursY)
+  quad(720, 320, 720, 420, 570, 420, 570+shadowHoursX, 320+shadowHoursY)
+  quad(875, 320, 875, 420, 725, 420, 725+shadowHoursX, 320+shadowHoursY)
+  quad(1030, 320, 1030, 420, 880, 420, 880+shadowHoursX, 320+shadowHoursY)
 
-  quad(155, 425, 155, 525, 5, 525, 145, 515)
-  quad(310, 425, 310, 525, 160, 525, 300, 515)
-  quad(465, 425, 465, 525, 315, 525, 455, 515)
-  quad(620, 425, 620, 525, 470, 525, 610, 515)
-  quad(775, 425, 775, 525, 625, 525, 765, 515)
-  quad(930, 425, 930, 525, 780, 525, 920, 515)
-  quad(1085, 425, 1085, 525, 935, 525, 1075, 515)
+  quad(155, 425, 155, 525, 5, 525, 5+shadowHoursX, 425+shadowHoursY)
+  quad(310, 425, 310, 525, 160, 525, 160+shadowHoursX, 425+shadowHoursY)
+  quad(465, 425, 465, 525, 315, 525, 315+shadowHoursX, 425+shadowHoursY)
+  quad(620, 425, 620, 525, 470, 525, 470+shadowHoursX, 425+shadowHoursY)
+  quad(775, 425, 775, 525, 625, 525, 625+shadowHoursX, 425+shadowHoursY)
+  quad(930, 425, 930, 525, 780, 525, 780+shadowHoursX, 425+shadowHoursY)
+  quad(1085, 425, 1085, 525, 935, 525, 935+shadowHoursX, 425+shadowHoursY)
+  } else { //shadows lengthen
+  quad(155, 5, 155, 105, 5, 105, 5+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(310, 5, 310, 105, 160, 105, 160+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(465, 5, 465, 105, 315, 105, 315+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(620, 5, 620, 105, 470, 105, 470+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(775, 5, 775, 105, 625, 105, 625+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(930, 5, 930, 105, 780, 105, 780+shadowHoursNegX, 5+shadowHoursNegY)
+  quad(1085, 5, 1085, 105, 935, 105, 935+shadowHoursNegX, 5+shadowHoursNegY)
+  
+  quad(100, 110, 100, 210, -50, 210, -50+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(255, 110, 255, 210, 105, 210, 105+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(410, 110, 410, 210, 260, 210, 260+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(565, 110, 565, 210, 415, 210, 415+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(720, 110, 720, 210, 570, 210, 570+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(875, 110, 875, 210, 725, 210, 725+shadowHoursNegX, 110+shadowHoursNegY)
+  quad(1030, 110, 1030, 210, 880, 210, 880+shadowHoursNegX, 110+shadowHoursNegY)
+  
+  quad(155, 215, 155, 315, 5, 315, 5+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(310, 215, 310, 315, 160, 315, 160+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(465, 215, 465, 315, 315, 315, 315+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(620, 215, 620, 315, 470, 315, 470+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(775, 215, 775, 315, 625, 315, 625+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(930, 215, 930, 315, 780, 315, 780+shadowHoursNegX, 215+shadowHoursNegY)
+  quad(1085, 215, 1085, 315, 935, 315, 935+shadowHoursNegX, 215+shadowHoursNegY)
+  
+  quad(100, 320, 100, 420, -50, 420, -50+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(255, 320, 255, 420, 105, 420, 105+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(410, 320, 410, 420, 260, 420, 260+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(565, 320, 565, 420, 415, 420, 415+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(720, 320, 720, 420, 570, 420, 570+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(875, 320, 875, 420, 725, 420, 725+shadowHoursNegX, 320+shadowHoursNegY)
+  quad(1030, 320, 1030, 420, 880, 420, 880+shadowHoursNegX, 320+shadowHoursNegY)
+  
+  quad(155, 425, 155, 525, 5, 525, 5+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(310, 425, 310, 525, 160, 525, 160+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(465, 425, 465, 525, 315, 525, 315+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(620, 425, 620, 525, 470, 525, 470+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(775, 425, 775, 525, 625, 525, 625+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(930, 425, 930, 525, 780, 525, 780+shadowHoursNegX, 425+shadowHoursNegY)
+  quad(1085, 425, 1085, 525, 935, 525, 935+shadowHoursNegX, 425+shadowHoursNegY)
+  }
   pop()
-
+  
   fill(0, 0, 0)
-  text(obj.seconds, 800, 50) // for looking at
+  //text(obj.seconds, 800, 50) // for looking at
   //text(obj.minutes, 500, 50)
   //text(obj.hours, 200, 50)
+  //text(exactSeconds, 800, 50)
 
   push() // HOURS
   translate(127.142857, 137.5)
