@@ -44,3 +44,6 @@ Runes01:
     Gave the runes a red colour that changes with minutes, and a glow that is cast onto the bricks behind them.
 
     changed the opacity of the shadows over the bricks.
+
+Alarm00:
+    added alarm. the runes spin fast and the background turns red and spins too.
