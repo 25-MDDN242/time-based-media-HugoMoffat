@@ -47,3 +47,23 @@ Runes01:
 
 Alarm00:
     added alarm. the runes spin fast and the background turns red and spins too.
+
+WizardRunic:
+    blue rect layered over DungeonGreen to change its colour to teal
+    drawRune function to facilitate repeated code
+
+
+
+README REAL
+
+Clock Name: Wizard Runic
+
+My Name: Hugo Moffat
+
+_design_intentions_
+
+_influence_and_inspiration_
+
+_additional_images_
+
+_design_process_
