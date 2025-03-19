@@ -31,6 +31,9 @@ Drew rects in the arrangement shown in sketch.jpg before isolating and translati
 
 Added a fifth rect to the hour battery after realising it was in 24 hour time. This makes the clock more cohesive as now every battery has five rects, and makes each battery operate the same.
 
+- Top two runes in each battery says the first digit in their corresponding number (hour, minute, second). Counting one more for each quarter rotation until rotating back to 0°, then the next rune rotate in quarters.
+- Bottom three runes in each battery counts the second digit in their corresponding number (hour, minute, seconds.) Counting one more for each quarter rotation until rotating back to 0°, then the next rune rotate in quarters.
+
 Experimenting with colour by mapping the objs for seconds, minutes, and hours to a range of 100 to 255 for use in RGB colour. initially from 0 to 255. but the lower ranges made the clock too dark to read.
 
 Made "REmaps" going down from 255 rather than up.
