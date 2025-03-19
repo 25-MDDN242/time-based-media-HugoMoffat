@@ -40,6 +40,7 @@ Replaced the black rects with red runes made from two quads. Runes' hue changes 
 Added a glowing effect made with translucent ellipses.
 
 Added the alarm. When obj.seconds_until_alarm == 0 the runes spin fast and the background turns red and spins faster.
+(NO COUNTDOWN TO ALARM)
 
 Added a blue rect with lower opacity over DungeonGreen to change the colour to teal.
 Added drawRune function to draw runes rather than repeating the same code over and over.
