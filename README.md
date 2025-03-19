@@ -20,12 +20,12 @@ _design_process_
 
 (vvv sketch.jpg described vvv)
 
-Runes rotate at fourths in batteries. The position of the runes tells the time. If a rune is pointing up it has no value.
-First four (left to right) are hours, if the fourth rune is pointing down, it is 11:00.
-Second and third batteries have 5 runes. Top two are for the first digit, bottom three are the second.
-Second rune in the second battery is pointing down its __:50. Fifth rune pointing right makes it __:57.
-First rune in the third battery is pointing left its __:__:30. Second rune pointing down its __:__:35.
-All together it is 11:57.35.
+- Runes rotate at fourths in batteries. The position of the runes tells the time. If a rune is pointing up it has no value.
+- First four (left to right) are hours, if the fourth rune is pointing down, it is 11:00.
+- Second and third batteries have 5 runes. Top two are for the first digit, bottom three are the second.
+- Second rune in the second battery is pointing down its __:50. Fifth rune pointing right makes it __:57.
+- First rune in the third battery is pointing left its __:__:30. Second rune pointing down its __:__:35.
+- All together it is 11:57.35.
 
 Drew rects in the arrangement shown in sketch.jpg before isolating and translating each one in its own push() and pop() so that each could be rotated individually.
 
