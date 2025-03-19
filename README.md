@@ -50,7 +50,7 @@ Added the alarm. When obj.seconds_until_alarm == 0 the runes spin fast and the b
 
 (NO COUNTDOWN TO ALARM)
 
-Added a blue rect with lower opacity over DungeonGreen to change the colour to teal.
+Added a blue rect with lower opacity over DungeonGreen to change its colour to teal.
 
 Added drawRune function to draw runes rather than repeating the same code over and over.
 
