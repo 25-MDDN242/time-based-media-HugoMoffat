@@ -16,7 +16,7 @@ A wizardly or magical aesthetic came naturally for the visuals of my clock as it
 
 ###
 
-- (vvv sketch.jpg described vvv)
+(vvv sketch.jpg described vvv)
 
 - Runes rotate at fourths in batteries. The position of the runes tells the time. If a rune is pointing up it has no value.
 - First four (left to right) are hours, if the fourth rune is pointing down, it is 11:00.
@@ -27,7 +27,7 @@ A wizardly or magical aesthetic came naturally for the visuals of my clock as it
 
 ###
 
-- Design Process
+Design Process
 
 Drew rects in the arrangement shown in sketch.jpg before isolating and translating each one in its own push() and pop() so that each could be rotated individually.
 
