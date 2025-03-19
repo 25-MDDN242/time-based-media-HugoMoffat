@@ -6,7 +6,7 @@
 
 - My Name: Hugo Moffat
 
-###
+### Intention and Influence
 
 My intention with this design was to create something that was really confusing and that you would need some esoteric knowledge to decipher.
 
@@ -14,9 +14,7 @@ The key influence for the motion of the clock was the action of turning a card s
 
 A wizardly or magical aesthetic came naturally for the visuals of my clock as it fit well with the esoteric design.
 
-###
-
-(vvv sketch.jpg described vvv)
+### (vvv sketch.jpg described vvv)
 
 - Runes rotate at fourths in batteries. The position of the runes tells the time. If a rune is pointing up it has no value.
 - First four (left to right) are hours, if the fourth rune is pointing down, it is 11:00.
@@ -25,9 +23,7 @@ A wizardly or magical aesthetic came naturally for the visuals of my clock as it
 - First rune in the third battery is pointing left its __:__:30. Second rune pointing down its __:__:35.
 - All together it is 11:57.35.
 
-###
-
-Design Process
+### Design Process
 
 Drew rects in the arrangement shown in sketch.jpg before isolating and translating each one in its own push() and pop() so that each could be rotated individually.
 
